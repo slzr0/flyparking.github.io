@@ -47,7 +47,7 @@ if(@$spam != true){
 	$mail->FromName = $Nome; // nome solicitante
 	 
 	// Define os destinatário(s)
-	$mail->AddAddress('anderson@flyparking.com.br');
+	$mail->AddAddress('anderson.salazar@flyparking.com.br');
 	//$mail->AddCC('email@site.com'); // Copia
 	//$mail->AddBCC('email@site.com'); // Cópia Oculta
 	 
