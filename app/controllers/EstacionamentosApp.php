@@ -12,9 +12,7 @@ namespace controllers{
     Conectando ao bando de dados
     */
     function __construct(){
-      //$this->PDO = new \PDO('mysql:host=localhost;dbname=flyapp_db;charset=utf8', 'root', ''); //Conexão
-      $this->PDO = new \PDO('mysql:host=localhost;dbname=flpusr_app_db;charset=utf8', 'flpusr_admindb', '&J?P(RE_2Kg]'); //Conexão
-      $this->PDO->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION); //Habilitando erros do PDO
+      include 'db/conexao.php';
     }
     /*
     Get

@@ -12,14 +12,14 @@ namespace controllers{
     Conectando ao bando de dados
     */
     function __construct(){
-      //$this->PDO = new \PDO('mysql:host=localhost;dbname=flyapp_db;charset=utf8', 'root', ''); //Conexão
-      $this->PDO = new \PDO('mysql:host=localhost;dbname=flpusr_app_db;charset=utf8', 'flpusr_admindb', '&J?P(RE_2Kg]'); //Conexão
-      $this->PDO->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION); //Habilitando erros do PDO
+      include 'db/conexao.php';
     }
+
     /*
     Lista
     Listando os usuarios do app
     */
+
     public function lista(){
       global $app;
       $sth = $this->PDO->prepare("SELECT * FROM usuarios_app");
@@ -27,10 +27,12 @@ namespace controllers{
       $resultado = $sth->fetchAll(\PDO::FETCH_ASSOC);
       $app->render('default.php',["data"=>$resultado],200);
     }
+
     /*
     Get
     Get dados dos usuarios do app login
     */
+
     public function listaAuth(){
       global $app;
       $dados = json_decode($app->request->getBody(), true);
@@ -42,11 +44,13 @@ namespace controllers{
       $resultado = $sth->fetch(\PDO::FETCH_ASSOC);
       $app->render('default.php',["data"=>$resultado],200);
     }
+
     /*
     Get
     param $id
     pega usuario pelo id
     */
+
     public function get($id){
       global $app;
       $sth = $this->PDO->prepare("SELECT * FROM usuarios_app WHERE id = :id");
@@ -55,10 +59,12 @@ namespace controllers{
       $resultado = $sth->fetch(\PDO::FETCH_ASSOC);
       $app->render('default.php',["data"=>$resultado],200);
     }
+
     /*
     Post
     Cadastra novo usuario
     */
+    
     public function add(){
       global $app;
       $dados = json_decode($app->request->getBody(), true);
