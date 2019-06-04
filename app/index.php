@@ -7,6 +7,11 @@ $app = new \Slim\Slim(array(
   'templates.path' => 'templates'
 ));
 
+//Listando todos os usuarios
+$app->get('/', function() use ($app){
+	echo 'n';
+});
+
 //usuarios
 
 //Listando todos os usuarios
